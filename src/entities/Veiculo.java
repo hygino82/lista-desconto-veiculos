@@ -43,14 +43,19 @@ public class Veiculo {
 
 	@Override
 	public String toString() {
-		return nome + ", " + String.format("%.2f", preco) + ", " + ano;
+		StringBuilder sb = new StringBuilder();
+		sb.append(nome + ", " + ano);
+		sb.append("\nPreço normal: R$" + String.format("%.2f", preco));
+		sb.append("\nValor do desconto: " + String.format("%.2f", desconto()));
+		sb.append("\nPreço com desconto: " + String.format("%.2f", preco - desconto())+"\n");
+		return sb.toString();
+		// return nome + ", " + String.format("%.2f", preco - desconto()) + ", " + ano;
 	}
 
 	public double desconto() {
-		if (ano <= 2000) {
+		if (ano <= 2000) {// desconto 12%
 			return preco * 0.12;
-		} 
-		else {
+		} else {// desconto 7%
 			return preco * 0.07;
 		}
 	}

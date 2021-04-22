@@ -17,7 +17,7 @@ public class Program {
 
 		do {
 
-			System.out.print("Informe o nome do veículo: ");
+			System.out.print("\nInforme o nome do veículo: ");
 			String nome = sc.nextLine();
 			System.out.print("Informe o preço do veículo: ");
 			double preco = sc.nextDouble();
@@ -37,12 +37,19 @@ public class Program {
 //		lista.add(v1);
 //		lista.add(v2);
 
+		int total = 0;
+		int totalAte2000 = 0;
 		System.out.println("\nFim da entrada de dados\n");
 
 		for (Veiculo v : lista) {
 			System.out.println(v);
+			total += 1;
+			if (v.getAno() <= 2000) {
+				totalAte2000 += 1;
+			}
 		}
-
+		System.out.println("Total de veículos até o ano 2000\n" + totalAte2000);
+		System.out.println("Total de veículos\n" + total);
 		sc.close();
 
 	}
